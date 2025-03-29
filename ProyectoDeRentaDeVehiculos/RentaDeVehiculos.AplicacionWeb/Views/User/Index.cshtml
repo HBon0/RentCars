@@ -1,0 +1,46 @@
+﻿@model IEnumerable<RentaDeVehiculos.LogicaDeNegocio.DTOs.UserResponse>
+
+@{
+    ViewData["Title"] = "Usuario";
+
+}
+
+<h1>Usuario</h1>
+
+<p>
+
+    <a asp-action="Create" class="btn-info"> Ir a crear usuario</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Usuario
+            </th>
+            <th></th>
+        </tr>
+        </thed>
+    <tbody>
+            @foreach (var item in Model)
+
+            {
+
+            <tr>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                @* <td>
+                        @Html.DisplayFor(modelItem => item.UserNickname)
+                </td> *@
+                <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                </td>
+            </tr>
+
+            }
+
+    </tbody>
+</table>
